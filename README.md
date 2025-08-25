@@ -21,11 +21,8 @@ A Chrome extension that automatically detects password input fields on web pages
 5. Select the extension folder
 6. The extension will be active immediately
 
-### From Chrome Web Store
-*Coming soon...*
 
-
-## ⚙️ Configuration
+## Configuration
 
 ### Redirect URL
 By default, the extension redirects to my portfolio. To change this:
