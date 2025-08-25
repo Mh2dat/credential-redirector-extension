@@ -51,13 +51,19 @@ The extension checks for password fields using multiple selectors:
 
 ## Use Cases
 
-## Sandbox Security Analysis
-This extension was developed for automated sandbox environments that analyze unkown URLs received from suspicious sources (emails, messages, etc.).
-How it works in sandbox:
+### Primary Use Case: Sandbox Security Analysis
+This extension was developed for **automated sandbox environments** that analyze unkown URLs received from suspicious sources (emails, messages, etc.). 
 
-    URL Submission: Sandbox receives potentially malicious URLs from email attachments or suspicious messages
-    Automated Browser: Sandbox opens URLs in controlled browser environment with this extension installed
-    Credential Detection: Extension monitors for password submission forms on the loaded pages
-    Flag Generation: When password fields are detected, extension redirects to a pre-configured "malicious" flag URL
-    Analysis Result: Sandbox interprets the redirect as "URL contains credential harvesting forms" - marking it as          potentially malicious
+**How it works in sandbox:**
+1. **URL Submission**: Sandbox receives potentially malicious URLs from email attachments or suspicious messages
+2. **Automated Browser**: Sandbox opens URLs in controlled browser environment with this extension installed
+3. **Credential Detection**: Extension monitors for password submission forms on the loaded pages
+4. **Flag Generation**: When password fields are detected, extension redirects to a pre-configured "malicious" flag URL
+5. **Analysis Result**: Sandbox interprets the redirect as "URL contains credential harvesting forms" - marking it as potentially malicious
 
+**Example Flow:**
+```
+Suspicious Email URL → Sandbox Browser → Extension Detects Password Form → 
+Redirects to http://sandbox-flag.internal/credential-detected → 
+Sandbox marks URL as "Credential Harvesting Threat"
+```
